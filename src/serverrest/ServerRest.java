@@ -37,6 +37,14 @@ public class ServerRest {
             server.createContext("/api/calcola/post", new PostHandler());
             server.createContext("/api/calcola/get", new GetHandler());
             
+            // Registra gli handlerv1 per gli endpoint
+            server.createContext("/api/v1/calcola/post", new PostHandler());
+            server.createContext("/api/v1/calcola/get", new GetHandler());
+            
+            // Registra gli handlerv2 per gli endpoint
+            server.createContext("/api/v2/calcola/post", new PostHandler());
+            server.createContext("/api/v2/calcola/get", new GetHandler());
+            
             // Endpoint di benvenuto
             server.createContext("/", ServerRest::gestisciBenvenuto);
             
@@ -51,8 +59,8 @@ public class ServerRest {
             System.out.println("Porta: " + porta);
             System.out.println();
             System.out.println("Endpoint disponibili:");
-            System.out.println("  - POST: http://localhost:" + porta + "/api/calcola/post");
-            System.out.println("  - GET:  http://localhost:" + porta + "/api/calcola/get");
+            System.out.println("  - POST: http://localhost:" + porta + "/api/v1/calcola/post");
+            System.out.println("  - GET:  http://localhost:" + porta + "/api/v1/calcola/get");
             System.out.println("  - Info: http://localhost:" + porta + "/");
             System.out.println();
             System.out.println("Operatori supportati:");
