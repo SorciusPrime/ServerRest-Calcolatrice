@@ -71,7 +71,7 @@ public class PostHandlerV1 implements HttpHandler {
             );
             
             // Crea l'oggetto risposta
-            OperazioneResponse response = new OperazioneResponse(
+            OperazioneResponseV1 response = new OperazioneResponseV1(
                 request.getOperando1(),
                 request.getOperando2(),
                 request.getOperatore(),

@@ -62,6 +62,7 @@ public class GetHandlerV2 implements HttpHandler {
             double risultato = CalcolatriceService.calcola(operando1, operando2, operatore);
             
             // Crea l'oggetto risposta
+            // non ci devo aggiungere gli altri dati come timestamp perchè sono automatici
             OperazioneResponseV2 response = new OperazioneResponseV2(
                 operando1,
                 operando2,
