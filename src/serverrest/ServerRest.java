@@ -33,7 +33,7 @@ public class ServerRest {
             // Crea il server sulla porta specificata
             HttpServer server = HttpServer.create(new InetSocketAddress(porta), 0);
             
-            // Registra gli handler per gli endpoint
+            // Registra gli handler per gli endpoint Legacy
             server.createContext("/api/calcola/post", new PostHandler());
             server.createContext("/api/calcola/get", new GetHandler());
             
@@ -64,7 +64,7 @@ public class ServerRest {
             System.out.println("  - Info: http://localhost:" + porta + "/");
             System.out.println();
             System.out.println("Operatori supportati:");
-            System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE");
+            System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, MODULO, RADICE");
             System.out.println();
             System.out.println("Premi Ctrl+C per fermare il server");
             System.out.println("==============================================");
@@ -99,6 +99,9 @@ public class ServerRest {
         operatori.put("sottrazione", "SOTTRAZIONE o -");
         operatori.put("moltiplicazione", "MOLTIPLICAZIONE o * o X");
         operatori.put("divisione", "DIVISIONE o /");
+        operatori.put("potenza", "POTENZA o ^");
+        operatori.put("modulo", "MODULO o %");
+        operatori.put("radice", "RADICE o sqtr");
         info.put("operatori_supportati", operatori);
         
         String jsonRisposta = gson.toJson(info);
