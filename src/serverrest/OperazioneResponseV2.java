@@ -4,6 +4,10 @@
  */
 package serverrest;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 /**
  *
  * @author delfo
@@ -23,8 +27,7 @@ public class OperazioneResponseV2 {
     }
    
     // Costruttore con parametri
-    public OperazioneResponseV2(double operando1, double operando2, 
-                             String operatore, double risultato) {
+    public OperazioneResponseV2(double operando1, double operando2,String operatore, double risultato) {
         this.operando1 = operando1;
         this.operando2 = operando2;
         this.operatore = operatore;
@@ -32,7 +35,10 @@ public class OperazioneResponseV2 {
         this.operazione = String.format("%.2f %s %.2f = %.2f", 
             operando1, operatore, operando2, risultato);
         
-        this.timestamp.LocalDateTime.now().format();
+        this.timestamp = LocalDateTime.now().format(
+        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.versione_api = "2.0";
+        this.request_id = UUID.randomUUID().toString();
     }
     
     // Getter
@@ -76,4 +82,30 @@ public class OperazioneResponseV2 {
     public void setOperazione(String operazione) {
         this.operazione = operazione;
     }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getVersione_api() {
+        return versione_api;
+    }
+
+    public void setVersione_api(String versione_api) {
+        this.versione_api = versione_api;
+    }
+
+    public String getRequest_id() {
+        return request_id;
+    }
+
+    public void setRequest_id(String request_id) {
+        this.request_id = request_id;
+    }
+    
+    
 }

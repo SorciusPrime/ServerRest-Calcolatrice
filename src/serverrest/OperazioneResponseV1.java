@@ -18,7 +18,7 @@ public class OperazioneResponseV1 {
     // Costruttore vuoto necessario per GSON
     public OperazioneResponseV1() {
     }
-    
+   
     // Costruttore con parametri
     public OperazioneResponseV1(double operando1, double operando2, 
                              String operatore, double risultato) {

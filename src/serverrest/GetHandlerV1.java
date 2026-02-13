@@ -62,7 +62,7 @@ public class GetHandlerV1 implements HttpHandler {
             double risultato = CalcolatriceService.calcola(operando1, operando2, operatore);
             
             // Crea l'oggetto risposta
-            OperazioneResponse response = new OperazioneResponse(
+            OperazioneResponseV1 response = new OperazioneResponseV1(
                 operando1,
                 operando2,
                 operatore,
